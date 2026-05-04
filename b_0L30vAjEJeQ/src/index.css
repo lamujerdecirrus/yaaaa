@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 96%;
+    --foreground: 213 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 50% 15%;
+
+    --primary: 213 70% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 197 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 33 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 85%;
+    --input: 214 32% 85%;
+    --ring: 213 70% 25%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 213 70% 25%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 197 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 60% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 213 60% 35%;
+    --sidebar-ring: 197 85% 55%;
+
+    --hp-navy: 213 70% 25%;
+    --hp-sky: 197 85% 55%;
+    --hp-orange: 33 95% 55%;
+    --hp-light-blue: 197 80% 92%;
+    --hp-header: 213 70% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .hp-header {
+    @apply bg-[hsl(var(--hp-navy))] text-white;
+  }
+  .hp-btn-primary {
+    @apply bg-[hsl(var(--hp-sky))] text-white font-semibold rounded-lg px-6 py-2 hover:opacity-90 transition-opacity;
+  }
+  .hp-btn-outline {
+    @apply border-2 border-[hsl(var(--hp-navy))] text-[hsl(var(--hp-navy))] font-semibold rounded-lg px-6 py-2 hover:bg-[hsl(var(--hp-navy))] hover:text-white transition-colors;
+  }
+  .hp-btn-orange {
+    @apply bg-[hsl(var(--hp-orange))] text-white font-semibold rounded-lg px-6 py-2 hover:opacity-90 transition-opacity;
+  }
+  .hp-card {
+    @apply bg-card rounded-lg shadow-md border border-border;
+  }
+  .hp-tab-active {
+    @apply bg-[hsl(var(--hp-sky))] text-white font-semibold;
+  }
+  .hp-tab-inactive {
+    @apply bg-white text-[hsl(var(--hp-navy))] border border-[hsl(var(--hp-navy))] font-medium;
+  }
+  .hp-table-header {
+    @apply bg-[hsl(var(--hp-navy))] text-white;
+  }
+  .hp-diagonal-bg {
+    background: linear-gradient(135deg, hsl(197, 85%, 55%) 0%, hsl(197, 85%, 65%) 50%, hsl(197, 85%, 55%) 100%);
+  }
+}
+
+/* Estilos de impresion */
+@media print {
+  /* Ocultar elementos que no deben imprimirse */
+  .print\\:hidden,
+  [data-sonner-toaster],
+  .sonner-toast,
+  .toast,
+  [role="status"] {
+    display: none !important;
+  }
+
+  /* Mostrar solo el contenido del recibo */
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #printable-receipt {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
